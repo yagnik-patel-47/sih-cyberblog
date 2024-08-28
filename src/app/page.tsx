@@ -11,13 +11,13 @@ import {
 import Nav from "@/components/nav";
 import React from "react";
 
-export default function Component() {
+export default function HomePage() {
 	return (
 		<React.Fragment>
-			<Nav />
+			<Nav fixed />
 			<main>
 				<section className="w-full lg:min-h-dvh flex items-center py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white selection:bg-blue-500">
-					<div className="container">
+					<div className="container max-sm:px-4">
 						<div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
 							<div className="flex flex-col justify-center space-y-4">
 								<div className="space-y-2">
@@ -63,7 +63,7 @@ export default function Component() {
 				</section>
 
 				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-					<div className="container">
+					<div className="container max-sm:px-4">
 						<div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
 							<div className="flex flex-col items-center space-y-4 text-center">
 								<AlertTriangle className="h-10 w-10 text-blue-700" />
@@ -93,7 +93,7 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full py-12 md:py-24 lg:py-32">
-					<div className="container">
+					<div className="container max-sm:px-4">
 						<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 md:mb-12">
 							Latest Incidents
 						</h2>
@@ -121,13 +121,13 @@ export default function Component() {
 					</div>
 				</section>
 				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
-					<div className="container">
+					<div className="container max-sm:px-4">
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
 							<div className="space-y-4">
 								<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 									Stay Ahead of Cyber Threats
 								</h2>
-								<p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-lg/relaxed dark:text-gray-400">
+								<p className="max-w-[900px] text-gray-500 text-sm md:text-base/relaxed xl:text-lg/relaxed dark:text-gray-400">
 									Join our community of cybersecurity professionals and
 									enthusiasts. Get real-time alerts, in-depth analysis, and
 									expert insights.

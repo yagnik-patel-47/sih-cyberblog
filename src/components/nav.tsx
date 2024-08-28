@@ -3,21 +3,32 @@
 import Link from "next/link";
 import { Shield } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { cn } from "@/lib/utils";
 
-export default function () {
+interface Props {
+	solidBg?: boolean;
+	fixed?: boolean;
+}
+
+export default function Nav(props: Props) {
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
-		window.addEventListener("scroll", () => {
-			if (window.scrollY > 150)
-				containerRef.current?.classList.add("bg-slate-800");
-			else containerRef.current?.classList.remove("bg-slate-800");
-		});
-	}, []);
+		if (!props.solidBg)
+			window.addEventListener("scroll", () => {
+				if (window.scrollY > 60)
+					containerRef.current?.classList.add("bg-slate-800");
+				else containerRef.current?.classList.remove("bg-slate-800");
+			});
+	}, [props.solidBg]);
 
 	return (
 		<div
-			className="text-white fixed top-0 w-full z-10 transition-all duration-200"
+			className={cn(
+				"text-white top-0 w-full z-10 transition-all duration-200",
+				props.solidBg && "bg-slate-800",
+				props.fixed ? "fixed" : "sticky",
+			)}
 			ref={containerRef}
 		>
 			<header className="py-4 container flex items-center">
