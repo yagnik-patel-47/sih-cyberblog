@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-	Shield,
-	Calendar,
-	Clock,
-	ChevronLeft,
-	ChevronRight,
-} from "lucide-react";
+import { Calendar, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 import Nav from "./nav";
 

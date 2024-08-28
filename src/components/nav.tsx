@@ -31,7 +31,7 @@ export default function Nav(props: Props) {
 			)}
 			ref={containerRef}
 		>
-			<header className="py-4 container flex items-center">
+			<header className="py-4 container max-sm:px-4 flex items-center">
 				<Link className="flex items-center justify-center" href="/">
 					<Shield className="size-5 lg:size-6 2xl:size-7" />
 					<span className="ml-2 text-base lg:text-lg 2xl:text-xl font-bold">

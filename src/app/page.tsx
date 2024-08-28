@@ -18,7 +18,7 @@ export default function HomePage() {
 			<main>
 				<section className="w-full lg:min-h-dvh flex items-center py-32 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white selection:bg-blue-500">
 					<div className="container max-sm:px-4">
-						<div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+						<div className="grid gap-16 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
 							<div className="flex flex-col justify-center space-y-4">
 								<div className="space-y-2">
 									<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -49,12 +49,12 @@ export default function HomePage() {
 								</div>
 							</div>
 							<div className="flex items-center justify-center">
-								<div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
+								<div className="relative w-[250px] h-[250px] sm:w-[400px] sm:h-[400px]">
 									<div className="absolute inset-0 bg-blue-500 rounded-full opacity-20 animate-pulse" />
 									<div className="absolute inset-4 bg-blue-600 rounded-full opacity-20 animate-pulse animation-delay-500" />
 									<div className="absolute inset-8 bg-blue-700 rounded-full opacity-20 animate-pulse animation-delay-1000" />
 									<div className="absolute inset-0 flex items-center justify-center">
-										<Lock className="h-24 w-24 sm:h-32 sm:w-32 text-slate-200" />
+										<Lock className="size-16 sm:size-32 text-slate-200" />
 									</div>
 								</div>
 							</div>
