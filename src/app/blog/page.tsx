@@ -44,11 +44,13 @@ export default async function BlogsPage() {
 								{allPosts.map((post) => (
 									<Card key={post.id}>
 										<CardHeader className="p-4 md:p-6">
-											<CardTitle className="text-xl">{post.title}</CardTitle>
+											<CardTitle className="md:text-xl text-lg">
+												{post.title}
+											</CardTitle>
 										</CardHeader>
 										<CardContent className="p-4 md:p-6 pt-0 md:pt-0 space-y-3">
 											<div className="flex gap-3 items-center text-gray-500">
-												<span className="text-sm">
+												<span className="text-xs sm:text-sm">
 													{new Date(post.date ?? "").toLocaleDateString(
 														"en-IN",
 														{
@@ -57,7 +59,7 @@ export default async function BlogsPage() {
 													)}
 												</span>
 												<span> - </span>
-												<span className="text-sm">{post.tags}</span>
+												<span className="text-xs sm:text-sm">{post.tags}</span>
 											</div>
 										</CardContent>
 										<CardFooter className="p-4 md:p-6 pt-0 md:pt-0">
