@@ -29,7 +29,7 @@ export default function AboutPage() {
 		<React.Fragment>
 			<Nav solidBg />
 			<main className="flex-1">
-				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+				<section className="w-full py-12 md:py-16 lg:py-24 bg-gray-100">
 					<div className="container max-sm:px-4">
 						<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 							About CyberSecInfo
@@ -40,7 +40,7 @@ export default function AboutPage() {
 						</p>
 					</div>
 				</section>
-				<section className="w-full py-12 md:py-24 lg:py-32">
+				<section className="w-full py-12 md:py-16 lg:py-24">
 					<div className="container max-sm:px-4">
 						<h2 className="text-3xl font-bold mb-8 text-center">Our Mission</h2>
 						<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -77,7 +77,7 @@ export default function AboutPage() {
 						</div>
 					</div>
 				</section>
-				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+				<section className="w-full py-12 md:py-16 lg:py-24 bg-gray-100">
 					<div className="container max-sm:px-4">
 						<h2 className="text-3xl font-bold mb-8 text-center">Our Team</h2>
 						<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -101,7 +101,7 @@ export default function AboutPage() {
 						</div>
 					</div>
 				</section>
-				<section className="w-full py-12 md:py-24 lg:py-32">
+				<section className="w-full py-12 md:py-16 lg:py-24">
 					<div className="container max-sm:px-4">
 						<h2 className="text-3xl font-bold mb-8">Our Approach</h2>
 						<div className="grid gap-6 md:grid-cols-2">

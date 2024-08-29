@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import Nav from "@/components/nav";
 import React from "react";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
 	return (
@@ -30,16 +32,25 @@ export default function HomePage() {
 									</p>
 								</div>
 								<div className="flex flex-col gap-2 min-[400px]:flex-row">
-									<Button className="bg-slate-100 text-blue-700 hover:bg-slate-300">
+									<Link
+										className={cn(
+											buttonVariants({ variant: "default" }),
+											"bg-slate-100 text-blue-700 hover:bg-slate-300",
+										)}
+										href={"/blog"}
+									>
 										Get Started
 										<ChevronRight className="ml-2 h-4 w-4" />
-									</Button>
-									<Button
-										variant="outline"
-										className="bg-transparent text-white border-white hover:bg-white/10 hover:text-white"
+									</Link>
+									<Link
+										className={cn(
+											buttonVariants({ variant: "outline" }),
+											"bg-transparent text-white border-white hover:bg-white/10 hover:text-white",
+										)}
+										href={"/about"}
 									>
 										Learn More
-									</Button>
+									</Link>
 								</div>
 								<div className="flex items-center space-x-2 text-sm text-gray-200">
 									<AlertTriangle className="h-4 w-4" />

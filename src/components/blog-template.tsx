@@ -4,13 +4,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Calendar, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import React from "react";
 import Nav from "./nav";
+import type { Post } from "@/server/db/schema";
+import PersonSvg from "@/assets/person.svg";
 
-export default function BlogTemplate() {
+interface Props {
+	data: Post;
+}
+
+export default function BlogTemplate(props: Props) {
 	return (
 		<React.Fragment>
 			<Nav solidBg />
 			<main className="flex-1">
-				<article className="prose lg:prose-xl prose-a:no-underline prose-h1:text-4xl max-md:prose-h1:text-3xl mx-auto py-10 max-sm:px-4">
+				<article className="mx-auto py-10 max-sm:px-4 max-w-prose w-full">
 					<Link
 						href="/blog"
 						className="inline-flex items-center text-blue-600 hover:underline mb-4 text-base"
@@ -18,72 +24,43 @@ export default function BlogTemplate() {
 						<ChevronLeft className="w-4 h-4 mr-1" />
 						Back to Blog
 					</Link>
-					<h1 className="">
-						The Rise of AI-Powered Cyber Attacks: What You Need to Know
+					<h1 className="text-3xl md:text-4xl font-extrabold mb-6 prose">
+						{props.data.title}
 					</h1>
 					<div className="flex items-center space-x-4 mb-6">
-						<Avatar>
-							<AvatarImage
-								src="/placeholder.svg?height=40&width=40"
-								alt="Author"
-							/>
-							<AvatarFallback>JD</AvatarFallback>
-						</Avatar>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							id="Person"
+							className="size-7 md:size-8 inline-block"
+						>
+							<title>Person</title>
+							<g fill="currentColor">
+								<path
+									d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm6 10a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z"
+									fill="currentColor"
+								/>
+							</g>
+						</svg>
 						<div>
-							<p className="text-sm font-medium !my-0">John Doe</p>
+							<p className="text-sm font-medium !my-0">{props.data.author}</p>
 							<div className="flex items-center text-sm text-gray-500">
 								<Calendar className="w-4 h-4 mr-1" />
-								<span>June 15, 2023</span>
-								<Clock className="w-4 h-4 ml-4 mr-1" />
-								<span>10 min read</span>
+								<span>
+									{new Date(props.data.date ?? "").toLocaleDateString("en-IN", {
+										dateStyle: "medium",
+									})}
+								</span>
+								{/* <Clock className="w-4 h-4 ml-4 mr-1" />
+								<span>10 min read</span> */}
 							</div>
 						</div>
 					</div>
-					<div className="prose max-w-none">
-						<p>
-							Artificial Intelligence (AI) is revolutionizing the cybersecurity
-							landscape, but it's also empowering hackers with new tools and
-							techniques. In this comprehensive guide, we'll explore the
-							emerging threats posed by AI-powered cyber attacks and discuss
-							strategies to protect yourself and your organization.
-						</p>
-						<h2>Understanding AI-Powered Cyber Attacks</h2>
-						<p>
-							AI-powered cyber attacks leverage machine learning algorithms and
-							advanced data processing capabilities to create more
-							sophisticated, targeted, and efficient attack vectors. These
-							attacks can adapt in real-time, evade traditional security
-							measures, and exploit vulnerabilities at an unprecedented scale.
-						</p>
-						<h2>Common Types of AI-Driven Attacks</h2>
-						<ul>
-							<li>Advanced Phishing and Social Engineering</li>
-							<li>Automated Vulnerability Discovery and Exploitation</li>
-							<li>Intelligent Malware and Ransomware</li>
-							<li>AI-Enhanced Distributed Denial of Service (DDoS) Attacks</li>
-						</ul>
-						<h2>Protecting Against AI-Powered Threats</h2>
-						<p>
-							To defend against these evolving threats, organizations and
-							individuals must adopt a proactive and multi-layered approach to
-							cybersecurity. This includes:
-						</p>
-						<ol>
-							<li>Implementing AI-powered security solutions</li>
-							<li>Regularly updating and patching systems</li>
-							<li>Conducting ongoing security awareness training</li>
-							<li>Employing robust authentication mechanisms</li>
-							<li>Developing and testing incident response plans</li>
-						</ol>
-						<h2>Conclusion</h2>
-						<p>
-							As AI continues to advance, both cybersecurity professionals and
-							malicious actors will leverage its capabilities. By staying
-							informed about the latest threats and implementing comprehensive
-							security measures, you can better protect yourself and your
-							organization in this new era of AI-powered cyber warfare.
-						</p>
-					</div>
+					<div
+						className="prose lg:prose-lg"
+						// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+						dangerouslySetInnerHTML={{ __html: props.data.body ?? "" }}
+					/>
 				</article>
 				<section className="bg-gray-100 py-12">
 					<div className="container max-sm:px-4 mx-auto">

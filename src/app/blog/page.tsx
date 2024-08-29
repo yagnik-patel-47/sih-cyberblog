@@ -9,16 +9,23 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Search, ChevronRight } from "lucide-react";
+import { Search, ChevronRight } from "lucide-react";
 import React from "react";
 import Nav from "@/components/nav";
+import { db } from "@/server/db";
+import { desc } from "drizzle-orm";
+import { posts } from "@/server/db/schema";
 
-export default function BlogsPage() {
+export default async function BlogsPage() {
+	const allPosts = await db.query.posts.findMany({
+		orderBy: [desc(posts.date)],
+	});
+
 	return (
 		<React.Fragment>
 			<Nav solidBg />
 			<main className="flex-1">
-				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+				<section className="w-full py-12 md:py-16 lg:py-24 bg-gray-100">
 					<div className="container max-sm:px-4">
 						<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
 							Cybersecurity Insights
@@ -29,72 +36,44 @@ export default function BlogsPage() {
 						</p>
 					</div>
 				</section>
-				<section className="w-full py-12 md:py-24 lg:py-32">
+				<section className="w-full py-12 md:py-16 lg:py-20">
 					<div className="container max-sm:px-4">
 						<div className="flex flex-col md:flex-row gap-10">
-							<div className="md:w-2/3">
-								<h2 className="text-2xl font-bold mb-6">Featured Post</h2>
-								<Card>
-									<CardHeader>
-										<CardTitle className="text-xl">
-											The Rise of AI-Powered Cyber Attacks: What You Need to
-											Know in the Evolving Landscape of Digital Security
-										</CardTitle>
-									</CardHeader>
-									<CardContent>
-										<p className="text-gray-500">
-											Artificial Intelligence is revolutionizing the
-											cybersecurity landscape, but it's also empowering hackers.
-											Learn about the latest AI-driven threats and how to
-											protect yourself in this comprehensive guide to the
-											changing face of digital security.
-										</p>
-									</CardContent>
-									<CardFooter>
-										<Link
-											className="text-blue-600 hover:underline flex items-center"
-											href="/blog/xyz"
-										>
-											Read more
-											<ChevronRight className="w-4 h-4 ml-1" />
-										</Link>
-									</CardFooter>
-								</Card>
-								<h2 className="text-2xl font-bold mt-12 mb-6">Latest Posts</h2>
-								<div className="space-y-8">
-									{[1, 2, 3].map((post) => (
-										<Card key={post}>
-											<CardHeader>
-												<CardTitle className="text-xl">
-													Securing Your Remote Workforce: Comprehensive Best
-													Practices for Cybersecurity in the Age of Distributed
-													Teams
-												</CardTitle>
-											</CardHeader>
-											<CardContent>
-												<p className="text-gray-500">
-													With remote work becoming the norm, ensuring the
-													security of your distributed team is more crucial than
-													ever. Discover the top strategies to protect your
-													organization from emerging threats and vulnerabilities
-													in this in-depth analysis of remote work security.
-												</p>
-											</CardContent>
-											<CardFooter>
-												<Link
-													className="text-blue-600 hover:underline flex items-center"
-													href="#"
-												>
-													Read more
-													<ChevronRight className="w-4 h-4 ml-1" />
-												</Link>
-											</CardFooter>
-										</Card>
-									))}
-								</div>
+							<div className="md:w-2/3 space-y-4">
+								<h2 className="text-2xl font-bold">Featured Posts</h2>
+								{allPosts.map((post) => (
+									<Card key={post.id}>
+										<CardHeader className="p-4 md:p-6">
+											<CardTitle className="text-xl">{post.title}</CardTitle>
+										</CardHeader>
+										<CardContent className="p-4 md:p-6 pt-0 md:pt-0 space-y-3">
+											<div className="flex gap-3 items-center text-gray-500">
+												<span className="text-sm">
+													{new Date(post.date ?? "").toLocaleDateString(
+														"en-IN",
+														{
+															dateStyle: "medium",
+														},
+													)}
+												</span>
+												<span> - </span>
+												<span className="text-sm">{post.tags}</span>
+											</div>
+										</CardContent>
+										<CardFooter className="p-4 md:p-6 pt-0 md:pt-0">
+											<Link
+												className="text-blue-600 hover:underline flex items-center"
+												href={`/blog/${post.id}`}
+											>
+												Read more
+												<ChevronRight className="w-4 h-4 ml-1" />
+											</Link>
+										</CardFooter>
+									</Card>
+								))}
 							</div>
 							<div className="md:w-1/3">
-								<div className="sticky top-14 space-y-6">
+								<div className="sticky top-20 space-y-6">
 									<Card>
 										<CardHeader>
 											<CardTitle>Search</CardTitle>
