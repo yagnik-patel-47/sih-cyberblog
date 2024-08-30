@@ -65,7 +65,7 @@ export default async function BlogsPage() {
 										<CardFooter className="p-4 md:p-6 pt-0 md:pt-0">
 											<Link
 												className="text-blue-600 hover:underline flex items-center"
-												href={`/blog/${post.id}`}
+												href={`/blog/${post.slug}`}
 											>
 												Read more
 												<ChevronRight className="w-4 h-4 ml-1" />

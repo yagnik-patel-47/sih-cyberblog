@@ -4,6 +4,7 @@ import { date, pgTable, text, uuid } from "drizzle-orm/pg-core";
 export const posts = pgTable("posts", {
 	id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
 	title: text("title"),
+	slug: text("slug").unique(),
 	author: text("author"),
 	tags: text("tags"),
 	body: text("body"),

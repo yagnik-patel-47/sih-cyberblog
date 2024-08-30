@@ -7,7 +7,7 @@ export default async function BlogPost({
 	params,
 }: { params: { [key: string]: string } }) {
 	const post = await db.query.posts.findFirst({
-		where: eq(posts.id, params.slug),
+		where: eq(posts.slug, params.slug),
 	});
 	if (!post) return <p>post not found</p>;
 	return <BlogTemplate data={post} />;
