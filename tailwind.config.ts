@@ -72,6 +72,17 @@ const config = {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 			},
+			typography: {
+				DEFAULT: {
+					css: {
+						h2: {
+							"& img": {
+								margin: "0",
+							},
+						},
+					},
+				},
+			},
 		},
 	},
 	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

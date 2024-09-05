@@ -40,7 +40,7 @@ export default async function BlogsPage() {
 					<div className="container max-sm:px-4">
 						<div className="flex flex-col md:flex-row gap-10">
 							<div className="md:w-2/3 space-y-4">
-								<h2 className="text-2xl font-bold">Featured Posts</h2>
+								<h2 className="text-2xl font-bold">Latest Posts</h2>
 								{allPosts.map((post) => (
 									<Card key={post.id}>
 										<CardHeader className="p-4 md:p-6">

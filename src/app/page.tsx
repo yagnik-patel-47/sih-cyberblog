@@ -9,9 +9,10 @@ import {
 	Lock,
 } from "lucide-react";
 import Nav from "@/components/nav";
-import React from "react";
+import React, { Suspense } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import RecentPosts from "@/components/recent-posts";
 
 export default function HomePage() {
 	return (
@@ -103,34 +104,9 @@ export default function HomePage() {
 						</div>
 					</div>
 				</section>
-				<section className="w-full py-12 md:py-24 lg:py-32">
-					<div className="container max-sm:px-4">
-						<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 md:mb-12">
-							Latest Incidents
-						</h2>
-						<div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-							{[1, 2, 3].map((i) => (
-								<div key={i} className="flex flex-col space-y-2">
-									<span className="text-sm text-gray-500">June 15, 2023</span>
-									<h3 className="text-xl font-bold">
-										Major Data Breach at Tech Giant
-									</h3>
-									<p className="text-gray-500 dark:text-gray-400">
-										A significant data breach has been reported at a leading
-										tech company, potentially affecting millions of users...
-									</p>
-									<Link
-										className="inline-flex items-center text-blue-600 hover:underline"
-										href="/blog/xyz"
-									>
-										Read more
-										<ChevronRight className="ml-1 h-4 w-4" />
-									</Link>
-								</div>
-							))}
-						</div>
-					</div>
-				</section>
+				<Suspense fallback={<div>loading...</div>}>
+					<RecentPosts />
+				</Suspense>
 				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
 					<div className="container max-sm:px-4">
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
