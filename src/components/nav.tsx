@@ -35,7 +35,7 @@ export default function Nav(props: Props) {
 				<Link className="flex items-center justify-center" href="/">
 					<Shield className="size-5 lg:size-6 2xl:size-7" />
 					<span className="ml-2 text-base lg:text-lg 2xl:text-xl font-bold">
-						CyberSecInfo
+						CyberCare
 					</span>
 				</Link>
 				<nav className="ml-auto flex gap-4 sm:gap-6">
