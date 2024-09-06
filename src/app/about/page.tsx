@@ -8,18 +8,27 @@ import Nav from "@/components/nav";
 
 const team = [
 	{
-		name: "Jane Doe",
-		role: "Founder & CEO",
+		name: "Yagnik Patel",
 		image: "/placeholder.svg?height=100&width=100",
 	},
 	{
-		name: "John Smith",
-		role: "Chief Security Officer",
+		name: "Ayush Singh",
 		image: "/placeholder.svg?height=100&width=100",
 	},
 	{
-		name: "Alice Johnson",
-		role: "Head of Research",
+		name: "Darsh Ayde",
+		image: "/placeholder.svg?height=100&width=100",
+	},
+	{
+		name: "Vatsal Joshi",
+		image: "/placeholder.svg?height=100&width=100",
+	},
+	{
+		name: "Mansi Sharma",
+		image: "/placeholder.svg?height=100&width=100",
+	},
+	{
+		name: "Honey Tandel",
 		image: "/placeholder.svg?height=100&width=100",
 	},
 ];
@@ -94,7 +103,6 @@ export default function AboutPage() {
 											</AvatarFallback>
 										</Avatar>
 										<h3 className="text-lg font-semibold">{member.name}</h3>
-										<p className="text-sm text-gray-500">{member.role}</p>
 									</CardContent>
 								</Card>
 							))}

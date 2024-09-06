@@ -104,7 +104,13 @@ export default function HomePage() {
 						</div>
 					</div>
 				</section>
-				<Suspense fallback={<div>loading...</div>}>
+				<Suspense
+					fallback={
+						<div className="h-96 grid place-content-center md:text-lg font-semibold">
+							loading...
+						</div>
+					}
+				>
 					<RecentPosts />
 				</Suspense>
 				<section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
